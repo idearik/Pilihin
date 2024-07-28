@@ -1,0 +1,91 @@
+/* Add these new styles and update existing ones */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: bounce 0.5s;
+}
+
+#inputContainer input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+#inputContainer input:focus {
+  transform: scale(1.05);
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:disabled {
+  background: #ccc;
+}
+
+button:hover:enabled {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.result {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  animation: fadeIn 1s;
+}
+
+  
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 1rem;
+    }
+  }
+  

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilihin</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pilihin</h1>
+    <form action="/randomize" method="post" id="inputForm">
+      <div id="inputContainer">
+        <% if (userInputs.length === 0) { %>
+          <input type="text" name="inputs[]" placeholder="Input 1" required>
+          <input type="text" name="inputs[]" placeholder="Input 2" required>
+          <input type="text" name="inputs[]" placeholder="Input 3">
+        <% } else { %>
+          <% userInputs.forEach((input, index) => { %>
+            <input type="text" name="inputs[]" value="<%= input %>" placeholder="Input <%= index + 1 %>" <%= index < 2 ? 'required' : '' %>>
+          <% }) %>
+          <% for (let i = userInputs.length; i < 3; i++) { %>
+            <input type="text" name="inputs[]" placeholder="Input <%= i + 1 %>">
+          <% } %>
+        <% } %>
+      </div>
+      <button type="button" id="addMore">Add More</button>
+      <button type="submit" id="pilihinButton" disabled>Pilihin!</button>
+    </form>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

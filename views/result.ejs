@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilihin</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hasil Pilihan:</h1>
+    <div class="result">
+      <p id="randomChoice"><%= randomChoice %></p>
+    </div>
+    <form action="/randomize" method="post">
+      <% userInputs.forEach((input, index) => { %>
+        <input type="hidden" name="inputs[]" value="<%= input %>">
+      <% }) %>
+      <button type="submit" id="pilihinButton">Pilihin Lagi!</button>
+    </form>
+    <form action="/" method="get">
+      <% userInputs.forEach((input, index) => { %>
+        <input type="hidden" name="inputs[]" value="<%= input %>">
+      <% }) %>
+      <button type="submit" id="ubahPilihanButton">Ubah Pilihan</button>
+    </form>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+</html>
